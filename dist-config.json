@@ -1,0 +1,9 @@
+{
+  "dest": "dist/installers/",
+  "icon": "assets/icons/logo.png",
+  "categories": [
+    "Utility"
+  ],
+  "productName": "Basecamp",
+  "version": "0.0.1"
+}

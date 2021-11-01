@@ -1,0 +1,19 @@
+{
+  "name": "basecamp",
+  "version": "0.0.1",
+  "description": "Basecamp client",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-packager . basecamp --platform linux --arch x64 --out dist/ --overwrite",
+    "create-installer": "electron-installer-debian --src dist/basecamp-linux-x64/ --dest dist/installers/ --arch amd64 --config dist-config.json"
+  },
+  "author": "Lucas Hourquebie",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^15.3.0",
+    "electron-installer-debian": "^3.1.0",
+    "electron-packager": "^15.4.0"
+  }
+}
