@@ -5,7 +5,7 @@ This project is a desktop client for [Basecamp](https://basecamp.com/), built on
 ## Stack
 
 * Node 16.13.0
-* Electron 15.3.0
+* Electron 22.0.0
 
 ## Setup
 
