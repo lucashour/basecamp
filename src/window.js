@@ -2,9 +2,7 @@ const path = require("path");
 const { BrowserWindow } = require("electron");
 
 exports.createBrowserWindow = (app) => {
-  return new BrowserWindow({
-    width: 1024,
-    height: 768,
+  const browserWindow = new BrowserWindow({
     icon: path.join(__dirname, "assets/icons/logo.png"),
     backgroundColor: "#fff",
     webPreferences: {
@@ -15,4 +13,8 @@ exports.createBrowserWindow = (app) => {
       webviewTag: true,
     },
   });
+
+  browserWindow.maximize();
+
+  return browserWindow;
 };
