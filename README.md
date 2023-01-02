@@ -17,6 +17,6 @@ This project is a desktop client for [Basecamp](https://basecamp.com/), built on
 ## Create new Linux executable
 
 1. Run `npm run build`.
-2. Create executable by running `npm run create-executable`.
+2. Create executable by running `npm run create-installer`.
 
 The executable will be placed on `dist/installers/`.
