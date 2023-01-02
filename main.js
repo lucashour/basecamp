@@ -28,12 +28,15 @@ const setupWindow = (app) => {
 
   Menu.setApplicationMenu(builtMenu);
 
-  mainWindow.webContents.on("new-window", (event, url) => {
-    event.preventDefault();
-    shell.openExternal(url);
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    if (url.startsWith("https:")) {
+      shell.openExternal(url);
+    }
+
+    return { action: "deny" };
   });
 
-  mainWindow.on('close',(event) => {
+  mainWindow.on("close",(event) => {
     if (!isQuiting) {
       event.preventDefault();
       mainWindow.hide();
@@ -42,7 +45,7 @@ const setupWindow = (app) => {
   });
 
   contextualMenu.append(new MenuItem({
-    label: 'Copy current URL to clipboard',
+    label: "Copy current URL to clipboard",
     click: () => {
       clipboard.writeText(mainWindow.webContents.getURL());
     },
@@ -52,17 +55,17 @@ const setupWindow = (app) => {
 };
 
 const setupTray = (app, mainWindow) => {
-  tray = new Tray(path.join(__dirname, '/assets/icons/tray.png'));
+  tray = new Tray(path.join(__dirname, "/assets/icons/tray.png"));
 
   tray.setContextMenu(Menu.buildFromTemplate([
     {
-      label: 'Open', click: () => {
+      label: "Open", click: () => {
         debugger;
         mainWindow.show();
       }
     },
     {
-      label: 'Quit', click: () => {
+      label: "Quit", click: () => {
         isQuiting = true;
         app.quit();
       }
